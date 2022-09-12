@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { rooms, game } from '../stores';
+	import { game, room, rooms } from '../stores';
 	import Number from './Number.svelte';
 	import Formula from './Formula.svelte';
+	import { page } from '$app/stores';
+	$: $room = $rooms.find((room) => room.id === $page.params.room);
 </script>
 
 <div class="items" id="scroller">

@@ -1,7 +1,11 @@
+<script lang="ts">
+	export let title = 'Play with Takeaway.com';
+</script>
+
 <header>
 	<img class="logo" src="/logo_white.png" alt="" />
 	<div class="head">
-		<div class="title">Play with Sabrican</div>
+		<div class="title">{title}</div>
 		<div class="slogan">Win the game or win the job</div>
 	</div>
 </header>

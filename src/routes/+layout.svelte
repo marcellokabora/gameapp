@@ -1,18 +1,19 @@
 <script>
 	import '../app.css';
-	import { rooms } from './stores';
+	import { rooms, room } from './stores';
 	import Menu from '$lib/Menu.svelte';
 	import Footer from '$lib/Footer.svelte';
+	import { page } from '$app/stores';
 </script>
 
 <main>
-	<Menu />
+	<Menu title={$room?.name} />
 	<div class="main">
 		<div class="rooms">
 			<div class="title">Choose your game room</div>
 			{#each $rooms as room}
 				<a href={room.id}>
-					<div class="room">
+					<div class="room" class:active={$page.params.room === room.id}>
 						<span>{room.name}</span>
 						<img src="/arrow-right.png" alt="" />
 					</div>
@@ -68,7 +69,11 @@
 		cursor: pointer;
 	}
 	.room:hover {
-		background-color: #eeeeee;
+		background-color: var(--btn-hover);
+	}
+	.room.active {
+		background-color: var(--primary-color);
+		color: white;
 	}
 	.game {
 		flex: 1;

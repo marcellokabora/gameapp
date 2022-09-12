@@ -1,15 +1,16 @@
-export interface Room {
-    id: string;
-    name: string;
-    users: string[];
-}
 export interface User {
-    id: string;
-    name: string;
+    id: string
+    name: string
+}
+export interface Room {
+    id: string
+    name: string
+    owner: string
+    type: string
 }
 export interface Game {
-    user: string;
-    count: number;
-    formula: any;
-    result: number;
+    user: string
+    count: number
+    formula: any
+    result: number
 }

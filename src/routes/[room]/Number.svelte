@@ -10,7 +10,6 @@
 			cpTurn(number);
 		}, 2000);
 	}
-
 	function cpTurn(count: number) {
 		addCount(count);
 		myturn = true;
@@ -27,7 +26,6 @@
 		$game = [...$game, data];
 		ScrollBottom();
 	}
-
 	function ScrollBottom() {
 		const element = document.getElementById('scroller');
 		setTimeout(() => {
@@ -63,7 +61,7 @@
 	button:disabled {
 		opacity: 0.5;
 	}
-	button:hover(:not(:disabled)) {
-		background-color: rgb(241, 241, 241);
+	button:hover {
+		background-color: var(--btn-hover);
 	}
 </style>
