@@ -1,10 +1,10 @@
 <footer>
-	<img class="logo" src="/logo_white.png" alt="" />
-	<b class="title">JUST EAT</b>
-	<b>Takeway</b>.com
+	<span class="material-icons logo">rocket_launch</span>
+	<b class="title">PLAY</b>
+	<b>gameapp</b>.com
 	<div class="space" />
 	<div class="cookie">Cookie statement</div>
-	<div>© 2021 Takeaway.com</div>
+	<div>© 2022 gameapp.com</div>
 </footer>
 
 <style>
@@ -16,7 +16,7 @@
 		color: white;
 	}
 	footer .logo {
-		margin-right: 20px;
+		margin-right: 10px;
 	}
 	footer .title {
 		margin-right: 10px;

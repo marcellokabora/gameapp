@@ -44,7 +44,7 @@
 	.odd {
 		justify-content: flex-end;
 	}
-	.odd :global(.user) {
+	.odd :global(.user2) {
 		order: 2;
 	}
 	.odd :global(.maino) {
@@ -54,6 +54,6 @@
 		display: none;
 	}
 	.odd :global(.user2) {
-		display: block;
+		display: flex;
 	}
 </style>

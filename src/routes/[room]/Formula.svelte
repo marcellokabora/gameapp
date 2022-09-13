@@ -5,8 +5,8 @@
 </script>
 
 <main>
-	<img class="user user1" src="/logo_orange.png" alt="" />
-	<img class="user user2" src="/player.png" alt="" />
+	<span class="material-icons user1">person</span>
+	<span class="material-icons user2">person</span>
 	<div class="maino">
 		<div class="count">{item.count}</div>
 		<div class="formula">{item.formula}</div>
@@ -25,11 +25,29 @@
 		text-align: left;
 		align-items: flex-start;
 	}
-	.user {
+	.material-icons {
 		height: 40px;
 		width: 40px;
 		margin: 0 10px;
 		padding: 10px;
+		height: 30px;
+		width: 30px;
+	}
+	.user1 {
+		background-color: var(--primary-color);
+		border-radius: 100px;
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		color: white;
+	}
+	.user2 {
+		background-color: var(--secondary-color);
+		border-radius: 100px;
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		color: white;
 	}
 	.count {
 		border-radius: 100px;

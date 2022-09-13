@@ -38,6 +38,7 @@
 	<button on:click={() => myTurn(-1)} disabled={!myturn}>-1</button>
 	<button on:click={() => myTurn(0)} disabled={!myturn}>0</button>
 	<button on:click={() => myTurn(1)} disabled={!myturn}>+1</button>
+	<button on:click={() => ($game = [])} disabled={!myturn}>X</button>
 </main>
 
 <style>

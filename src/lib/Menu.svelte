@@ -1,9 +1,9 @@
 <script lang="ts">
-	export let title = 'Play with Takeaway.com';
+	export let title = 'Play with gameapp.com';
 </script>
 
 <header>
-	<img class="logo" src="/logo_white.png" alt="" />
+	<span class="material-icons logo">rocket_launch</span>
 	<div class="head">
 		<div class="title">{title}</div>
 		<div class="slogan">Win the game or win the job</div>
@@ -21,6 +21,7 @@
 	}
 	header .logo {
 		margin-right: 10px;
+		font-size: 40px;
 	}
 	header .title {
 		font-weight: bold;

@@ -7,6 +7,7 @@ export interface Room {
     name: string
     owner: string
     type: string
+    game: Game[]
 }
 export interface Game {
     user: string
