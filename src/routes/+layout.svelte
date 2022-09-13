@@ -7,6 +7,10 @@
 	$: room = $rooms.filter((room) => room.id === $page.params.room)[0];
 </script>
 
+<svelte:head>
+	<title>GameApp | Welcome</title>
+</svelte:head>
+
 <main>
 	<Menu title={room?.name} />
 	<div class="main">
@@ -16,7 +20,7 @@
 				<a href={room.id}>
 					<div class="room" class:active={$page.params.room === room.id}>
 						<span>{room.name}</span>
-						<img src="/arrow-right.png" alt="" />
+						<span class="material-icons logo">keyboard_arrow_right</span>
 					</div>
 				</a>
 			{/each}

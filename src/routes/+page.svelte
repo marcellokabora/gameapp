@@ -1,1 +1,5 @@
-<p>This application is built in svelte and is a game etc...</p>
+<script>
+</script>
+
+<h1>Welcome</h1>
+<h3>Select a room and start play</h3>

@@ -1,6 +1,8 @@
 import { writable } from 'svelte/store';
 import type { Room } from './interfaces';
 
+export const myturn = writable(true)
+export const loadturn = writable(false)
 export const rooms = writable<Room[]>([
     {
         id: "d2726a4a",

@@ -1,19 +1,39 @@
 <script lang="ts">
-	import { rooms } from '../stores';
+	import { rooms, myturn, loadturn } from '../stores';
 	import Number from './Number.svelte';
 	import Formula from './Formula.svelte';
 	import { page } from '$app/stores';
-	$: game = $rooms.filter((room) => room.id === $page.params.room)[0]?.game;
+	import Player from '$lib/Player.svelte';
+	$: room = $rooms.filter((room) => room.id === $page.params.room)[0];
 </script>
+
+<svelte:head>
+	<title>GameApp | {room.name}</title>
+</svelte:head>
 
 <div class="items" id="scroller">
 	<div class="citems">
-		{#if game}
-			{#each game as item, index}
-				<div class="flexo" class:odd={index % 2}>
-					<Formula {item} />
+		{#if room.game}
+			{#each room.game as item, index}
+				<div class="flexo">
+					<Player {index}>
+						<Formula {item} />
+					</Player>
 				</div>
 			{/each}
+		{/if}
+		{#if $myturn}
+			<Player>
+				<Number />
+			</Player>
+		{/if}
+		{#if $loadturn}
+			<Player index={1}>
+				<div class="loading">
+					<span class="material-icons">hourglass_top</span>
+					<span>Loading...</span>
+				</div>
+			</Player>
 		{/if}
 	</div>
 </div>
@@ -22,6 +42,20 @@
 </div>
 
 <style>
+	.loading {
+		display: flex;
+		align-items: center;
+		font-size: 16px;
+		color: grey;
+		margin-top: 7px;
+	}
+	.loading .material-icons {
+		font-size: 35px;
+	}
+	.loading span {
+		margin-right: 10px;
+		margin-left: -5px;
+	}
 	.items {
 		flex: 1;
 		overflow: auto;
@@ -38,24 +72,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		display: none;
 	}
 	.flexo {
 		display: flex;
 		justify-content: flex-start;
-	}
-	.odd {
-		justify-content: flex-end;
-	}
-	.odd :global(.user2) {
-		order: 2;
-	}
-	.odd :global(.maino) {
-		align-items: flex-end;
-	}
-	.odd :global(.user1) {
-		display: none;
-	}
-	.odd :global(.user2) {
-		display: flex;
 	}
 </style>

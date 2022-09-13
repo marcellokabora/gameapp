@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { rooms } from '../stores';
+	import { rooms, myturn, loadturn } from '../stores';
 	import { page } from '$app/stores';
 	$: game = $rooms.filter((room) => room.id === $page.params.room)[0]?.game;
-	let myturn = true;
 	function myTurn(count: number) {
-		myturn = false;
+		$myturn = false;
+		$loadturn = true;
 		addCount(count);
 		ScrollBottom();
 		setTimeout(() => {
@@ -14,7 +14,8 @@
 	}
 	function cpTurn(count: number) {
 		addCount(count);
-		myturn = true;
+		$loadturn = false;
+		$myturn = true;
 	}
 	function addCount(count: number) {
 		if (game) {
@@ -36,23 +37,19 @@
 			element?.scroll({ top: 100000, behavior: 'smooth' });
 		}, 0);
 	}
-	function resetGame() {
-		game = [];
-		$rooms = [...$rooms];
-	}
 </script>
 
-<main>
-	<button on:click={() => myTurn(-1)} disabled={!myturn}>-1</button>
-	<button on:click={() => myTurn(0)} disabled={!myturn}>0</button>
-	<button on:click={() => myTurn(1)} disabled={!myturn}>+1</button>
-	<button on:click={resetGame} disabled={!myturn}>X</button>
+<main class:hiddem={!myturn}>
+	<button on:click={() => myTurn(-1)}>-1</button>
+	<button on:click={() => myTurn(0)}>0</button>
+	<button on:click={() => myTurn(1)}>+1</button>
 </main>
 
 <style>
 	main {
 		display: flex;
 		align-items: center;
+		margin-top: -5px;
 	}
 	button {
 		margin: 0px 10px;
@@ -67,8 +64,8 @@
 		font-size: 18px;
 		cursor: pointer;
 	}
-	button:disabled {
-		opacity: 0.5;
+	.hiddem {
+		display: none;
 	}
 	button:hover {
 		background-color: var(--btn-hover);

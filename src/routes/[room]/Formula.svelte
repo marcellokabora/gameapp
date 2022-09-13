@@ -4,55 +4,21 @@
 	export let item: Game;
 </script>
 
-<main>
+<!-- <main>
 	<span class="material-icons user1">person</span>
 	<span class="material-icons user2">person</span>
-	<div class="maino">
-		<div class="count">{item.count}</div>
-		<div class="formula">{item.formula}</div>
-		<div class="result">{item.result}</div>
-	</div>
-</main>
+	<div class="maino"> -->
+<div class="count">{item.count}</div>
+<div class="formula">{item.formula}</div>
+<div class="result">{item.result}</div>
 
+<!-- </div>
+</main> -->
 <style>
-	main {
-		display: flex;
-	}
-	.maino {
-		display: flex;
-		flex-direction: column;
-		font-size: 12px;
-		text-align: left;
-		align-items: flex-start;
-	}
-	.material-icons {
-		height: 40px;
-		width: 40px;
-		margin: 0 10px;
-		padding: 10px;
-		height: 30px;
-		width: 30px;
-	}
-	.user1 {
-		background-color: var(--primary-color);
-		border-radius: 100px;
-		align-items: center;
-		display: flex;
-		justify-content: center;
-		color: white;
-	}
-	.user2 {
-		background-color: var(--secondary-color);
-		border-radius: 100px;
-		align-items: center;
-		display: flex;
-		justify-content: center;
-		color: white;
-	}
 	.count {
 		border-radius: 100px;
 		font-weight: bold;
-		background-color: #205a6d;
+		background-color: #c4c4c4;
 		color: white;
 		margin-bottom: 20px;
 		height: 56px;

@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { api } from './api';
-import type { PageServerLoad, Actions } from '../../.svelte-kit/types/src/routes/$types';
+import type { PageServerLoad, Actions } from './$types';
 
 type Todo = {
 	uid: string;
@@ -21,6 +21,8 @@ export const load: PageServerLoad = async ({ locals }) => {
 			todos: [] as Todo[]
 		};
 	}
+	console.log(locals.userid);
+
 
 	if (response.status === 200) {
 		return {
