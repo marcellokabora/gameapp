@@ -37,9 +37,6 @@
 		{/if}
 	</div>
 </div>
-<div class="action">
-	<Number />
-</div>
 
 <style>
 	.loading {
@@ -64,15 +61,6 @@
 	.citems {
 		padding: 40px;
 		overflow: auto;
-	}
-	.action {
-		padding: 20px;
-		box-shadow: 0 -2px 2px rgb(0 0 0 / 10%);
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		display: none;
 	}
 	.flexo {
 		display: flex;
