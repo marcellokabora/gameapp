@@ -4,16 +4,10 @@
 	export let item: Game;
 </script>
 
-<!-- <main>
-	<span class="material-icons user1">person</span>
-	<span class="material-icons user2">person</span>
-	<div class="maino"> -->
 <div class="count">{item.count}</div>
 <div class="formula">{item.formula}</div>
 <div class="result">{item.result}</div>
 
-<!-- </div>
-</main> -->
 <style>
 	.count {
 		border-radius: 100px;
@@ -34,8 +28,5 @@
 		border-radius: 2px;
 		padding: 10px 20px;
 		margin-bottom: 10px;
-	}
-	.user2 {
-		display: none;
 	}
 </style>
