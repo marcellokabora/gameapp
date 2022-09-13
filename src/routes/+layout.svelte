@@ -1,13 +1,14 @@
 <script>
 	import '../app.css';
-	import { rooms, room } from './stores';
+	import { rooms } from './stores';
 	import Menu from '$lib/Menu.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import { page } from '$app/stores';
+	$: room = $rooms.filter((room) => room.id === $page.params.room)[0];
 </script>
 
 <main>
-	<Menu title={$room?.name} />
+	<Menu title={room?.name} />
 	<div class="main">
 		<div class="rooms">
 			<div class="title">Choose your game room</div>

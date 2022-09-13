@@ -1,18 +1,20 @@
 <script lang="ts">
-	import { game, room, rooms } from '../stores';
+	import { rooms } from '../stores';
 	import Number from './Number.svelte';
 	import Formula from './Formula.svelte';
 	import { page } from '$app/stores';
-	$: $room = $rooms.find((room) => room.id === $page.params.room);
+	$: game = $rooms.filter((room) => room.id === $page.params.room)[0]?.game;
 </script>
 
 <div class="items" id="scroller">
 	<div class="citems">
-		{#each $game as item, index}
-			<div class="flexo" class:odd={index % 2}>
-				<Formula {item} />
-			</div>
-		{/each}
+		{#if game}
+			{#each game as item, index}
+				<div class="flexo" class:odd={index % 2}>
+					<Formula {item} />
+				</div>
+			{/each}
+		{/if}
 	</div>
 </div>
 <div class="action">

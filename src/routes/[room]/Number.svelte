@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { game } from '../stores';
+	import { rooms } from '../stores';
+	import { page } from '$app/stores';
+	$: game = $rooms.filter((room) => room.id === $page.params.room)[0]?.game;
 	let myturn = true;
 	function myTurn(count: number) {
 		myturn = false;
@@ -15,16 +17,18 @@
 		myturn = true;
 	}
 	function addCount(count: number) {
-		const rdn = $game.length > 0 ? $game[$game.length - 1].result : Math.floor(Math.random() * 20);
-		const result = Math.floor((count + rdn) / 3);
-		const data = {
-			user: 'user',
-			count: count,
-			formula: `[ ( ${count} + ${rdn} ) / 3 ] = ${result}`,
-			result: result
-		};
-		$game = [...$game, data];
-		ScrollBottom();
+		if (game) {
+			const rdn = game.length > 0 ? game[game.length - 1].result : Math.floor(Math.random() * 20);
+			const result = Math.floor((count + rdn) / 3);
+			game.push({
+				user: 'user',
+				count: count,
+				formula: `[ ( ${count} + ${rdn} ) / 3 ] = ${result}`,
+				result: result
+			});
+			$rooms = [...$rooms];
+			ScrollBottom();
+		}
 	}
 	function ScrollBottom() {
 		const element = document.getElementById('scroller');
@@ -32,13 +36,17 @@
 			element?.scroll({ top: 100000, behavior: 'smooth' });
 		}, 0);
 	}
+	function resetGame() {
+		game = [];
+		$rooms = [...$rooms];
+	}
 </script>
 
 <main>
 	<button on:click={() => myTurn(-1)} disabled={!myturn}>-1</button>
 	<button on:click={() => myTurn(0)} disabled={!myturn}>0</button>
 	<button on:click={() => myTurn(1)} disabled={!myturn}>+1</button>
-	<button on:click={() => ($game = [])} disabled={!myturn}>X</button>
+	<button on:click={resetGame} disabled={!myturn}>X</button>
 </main>
 
 <style>

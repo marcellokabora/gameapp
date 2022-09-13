@@ -1,17 +1,5 @@
 import { writable } from 'svelte/store';
-import type { Game, Room } from './interfaces';
-
-export const game = writable<Game[]>([]);
-
-// check for localStorage, this won't run on SSR
-if (typeof localStorage !== 'undefined') {
-    game.set(JSON.parse(localStorage.game))
-    game.subscribe((value) => localStorage.game = JSON.stringify(value))
-}
-
-
-// export const game = writable<Game[]>(JSON.parse(JSON.stringify(localStorage.getItem("game"))) || []);
-// game.subscribe(val => localStorage.setItem("game", (JSON.parse(JSON.stringify(val)))))
+import type { Room } from './interfaces';
 
 export const rooms = writable<Room[]>([
     {
@@ -37,4 +25,5 @@ export const rooms = writable<Room[]>([
     }
 ]);
 
-export const room = writable<Room | undefined>()
+
+
