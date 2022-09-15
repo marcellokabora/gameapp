@@ -8,6 +8,7 @@
 	--secondary-color: #0A3847;
 	--background-color: #f8f5f2;
 	--btn-hover: #eeeeee;
+	--mobile-screen: 1000px;
 }
 
 body {

@@ -1,9 +1,11 @@
 <script>
 	import '../app.css';
-	import { rooms } from './stores';
+	import { rooms, showmenu } from './stores';
 	import Menu from '$lib/Menu.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import { page } from '$app/stores';
+	import { fade } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
 	$: room = $rooms.filter((room) => room.id === $page.params.room)[0];
 </script>
 
@@ -14,7 +16,7 @@
 <main>
 	<Menu title={room?.name} />
 	<div class="main">
-		<div class="rooms">
+		<div class="rooms" class:show={$showmenu}>
 			<div class="title">Choose your game room</div>
 			{#each $rooms as room}
 				<a href={room.id}>
@@ -32,7 +34,7 @@
 	<Footer />
 </main>
 
-<style>
+<style lang="css">
 	main {
 		display: flex;
 		/* align-items: center;
@@ -91,5 +93,17 @@
 		margin: 0;
 		/* max-width: 500px; */
 		background-color: white;
+	}
+	@media (max-width: 1000px) {
+		.rooms {
+			display: none;
+			position: absolute;
+			box-shadow: 0px 0px 5px black;
+			height: calc(100% - 155px);
+			background-color: white;
+		}
+	}
+	.rooms.show {
+		display: inline !important;
 	}
 </style>

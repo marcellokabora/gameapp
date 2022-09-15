@@ -4,7 +4,7 @@
 	<b>gameapp</b>.com
 	<div class="space" />
 	<div class="cookie">Cookie statement</div>
-	<div>© 2022 gameapp.com</div>
+	<div class="gameapp">© 2022 gameapp.com</div>
 </footer>
 
 <style>
@@ -26,5 +26,11 @@
 	}
 	footer .space {
 		flex: 1;
+	}
+	@media (max-width: 1000px) {
+		.cookie,
+		.gameapp {
+			display: none;
+		}
 	}
 </style>

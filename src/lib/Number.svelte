@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { rooms, myturn, loadturn } from '../stores';
+	import { rooms, myturn, loadturn } from '../routes/stores';
 	import { page } from '$app/stores';
 	$: game = $rooms.filter((room) => room.id === $page.params.room)[0]?.game;
 	function myTurn(count: number) {

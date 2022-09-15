@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { rooms, myturn, loadturn } from '../stores';
-	import Number from './Number.svelte';
-	import Formula from './Formula.svelte';
+	import Number from '$lib/Number.svelte';
+	import Formula from '$lib/Formula.svelte';
 	import { page } from '$app/stores';
 	import Player from '$lib/Player.svelte';
 	$: room = $rooms.filter((room) => room.id === $page.params.room)[0];
@@ -65,5 +65,11 @@
 	.flexo {
 		display: flex;
 		justify-content: flex-start;
+		margin: 10px 0;
+	}
+	@media (max-width: 1000px) {
+		.citems {
+			padding: 20px;
+		}
 	}
 </style>

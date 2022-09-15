@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Game } from '../interfaces';
+	import type { Game } from '../routes/interfaces';
 
 	export let item: Game;
 </script>
